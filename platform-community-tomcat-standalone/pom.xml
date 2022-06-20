@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2013 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform.distributions</groupId>
+    <artifactId>platform-community-distributions</artifactId>
+    <version>6.4.x-devx-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-community-tomcat-standalone</artifactId>
+  <packaging>pom</packaging>
+  <name>eXo PLF:: Platform Community Distributions - Community Tomcat Standalone</name>
+  <dependencies>
+    <!-- Our modules -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>platform-community-edition-service</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>platform-community-root-webapp</artifactId>
+      <type>war</type>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Subscription agreement -->
+<!--    <dependency>-->
+<!--      <groupId>com.exoplatform.legal</groupId>-->
+<!--      <artifactId>subscription-agreement</artifactId>-->
+<!--      <type>pdf</type>-->
+<!--      <classifier>US</classifier>-->
+<!--      <scope>provided</scope>-->
+<!--    </dependency>-->
+    <!-- Platform - community distrib -->
+    <dependency>
+      <groupId>io.meeds.distribution</groupId>
+      <artifactId>plf-community-tomcat-standalone</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Pre-bundled addons -->
+    <dependency>
+      <groupId>org.exoplatform.addons.digital-workplace</groupId>
+      <artifactId>digital-workplace-packaging</artifactId>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.layout-management</groupId>
+      <artifactId>layout-management-packaging</artifactId>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.jitsi</groupId>
+      <artifactId>web-conferencing-jitsi-packaging</artifactId>
+      <version>${addon.exo.jitsi.version}</version>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.agenda</groupId>
+      <artifactId>agenda-packaging</artifactId>
+      <version>${addon.exo.agenda.version}</version>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.web-conferencing</groupId>
+      <artifactId>web-conferencing-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>jcr-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.upgrade</groupId>
+      <artifactId>data-upgrade-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.news</groupId>
+      <artifactId>news-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.onlyoffice</groupId>
+      <artifactId>exo-onlyoffice-editor-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.chat</groupId>
+      <artifactId>chat-embedded-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.automatic-translation</groupId>
+      <artifactId>automatic-translation-packaging</artifactId>
+      <type>zip</type>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.documents</groupId>
+      <artifactId>documents-packaging</artifactId>
+      <version>${addon.exo.documents.version}</version>
+      <scope>provided</scope>
+      <type>zip</type>
+    </dependency>
+    <!-- Required for onlyOffice and web-conferencing addons-->
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <!-- Used by the assembly for the main directory name -->
+    <finalName>exo-platform-community-${project.version}</finalName>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/local-catalog</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/catalog</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>*.json</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>create-timestamp</goal>
+            </goals>
+            <configuration>
+              <timestampFormat>dd/MM/yyyy</timestampFormat>
+              <timestampPropertyName>build.date</timestampPropertyName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <executions>
+              <execution>
+                  <id>unpack</id>
+                  <phase>generate-sources</phase>
+                  <goals>
+                      <goal>unpack</goal>
+                  </goals>
+                  <configuration>
+                      <artifactItems>
+                          <artifactItem>
+                              <groupId>io.meeds.distribution</groupId>
+                              <artifactId>plf-community-tomcat-standalone</artifactId>
+                              <type>zip</type>
+                              <outputDirectory>target/${project.build.finalName}/${project.build.finalName}</outputDirectory>
+                          </artifactItem>
+                      </artifactItems>
+                      <excludes>**/exo-sample.properties</excludes>
+                      <excludes>**/webapps/ROOT.war</excludes>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <!-- Create the distribution directory with all content -->
+          <execution>
+            <id>platform-community-tomcat-distribution-content</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <attach>false</attach>
+              <descriptors>
+                <descriptor>src/main/assemblies/platform-community-tomcat-zip-contents.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+              <id>move</id>
+              <phase>generate-sources</phase>
+              <goals>
+                  <goal>run</goal>
+              </goals>
+              <configuration>
+                  <target>
+                      <echo message="Move directory from ${project.basedir}/target/${project.build.finalName}/${project.build.finalName}/meeds-community-${io.meeds.distribution.version} to ${project.basedir}/target/${project.build.finalName}/${project.build.finalName}" />
+                      <move todir="${project.basedir}/target/${project.build.finalName}/${project.build.finalName}" flatten="false">
+                          <fileset dir="${project.basedir}/target/${project.build.finalName}/${project.build.finalName}/meeds-community-${io.meeds.distribution.version}">
+                              <exclude name="**/plf-community-edition-service*.jar" />
+                              <exclude name="**/plf-configuration*.jar" />
+                              <exclude name="**/meeds.war" />
+                              <exclude name="**/addons/configuration/am.properties" />
+                              <exclude name="**/CHANGE_LOG.txt" />
+                              <exclude name="**/RELEASE_NOTES.txt" />
+                          </fileset>
+                      </move>
+                      <echo message="Delete directory ${project.basedir}/target/${project.build.finalName}/${project.build.finalName}/meeds-community-${io.meeds.distribution.version}" />
+                      <delete includeemptydirs="true">
+                          <fileset dir="${project.basedir}/target/${project.build.finalName}/${project.build.finalName}/meeds-community-${io.meeds.distribution.version}">
+                          </fileset>
+                      </delete>
+                  </target>
+              </configuration>
+          </execution>
+          <execution>
+            <id>install-add-ons</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target name="install-add-ons">
+                <echo message="Set permission on addon executable" />
+                <chmod file="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" perm="ugo+rx"/>
+                <echo message="Installing add-ons..." />
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.digital-workplace.id}:${addon.exo.digital-workplace.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.data-upgrade.id}:${addon.exo.data-upgrade.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.web-conferencing.id}:${addon.exo.web-conferencing.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.jcr.id}:${addon.exo.jcr.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.ecms.id}:${addon.exo.ecms.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.layout-management.id}:${addon.exo.layout-management.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.jitsi.id}:${addon.exo.jitsi.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                 <arg line="install ${addon.exo.agenda.id}:${addon.exo.agenda.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.news.id}:${addon.exo.news.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.onlyoffice.id}:${addon.exo.onlyoffice.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.chat.id}:${addon.exo.chat.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.automatic-translation.id}:${addon.exo.automatic-translation.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="install ${addon.exo.documents.id}:${addon.exo.documents.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
+                </exec>
+                <!-- Uninstall Some pre-bundled Meeds Package addons -->
+                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
+                  <arg line="uninstall meeds-gamification-github" />
+                </exec>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>create-archive</id>
+      <activation>
+        <property>
+          <name>!skip-archive</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <!-- Create the distribution zip and attach it to maven -->
+              <execution>
+                <id>platform-community-tomcat-zip</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assemblies/platform-community-tomcat-zip-contents.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+            </executions>
+            <dependencies>
+              <dependency>
+                <groupId>io.meeds.distribution</groupId>
+                <artifactId>plf-assemblies</artifactId>
+                <version>${io.meeds.distribution.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>exo-release</id>
+      <build>
+        <plugins>
+          <!-- Build License related files bundled directly in the archive -->
+          <!-- This is a long process and really useful only for released stuffs -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-remote-resources-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>process</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <resourceBundles>
+                <resourceBundle>org.exoplatform.resources:exo-lgpl-license-resource-bundle:${version.exo-lgpl-license-resource-bundle}</resourceBundle>
+              </resourceBundles>
+              <includeScope>provided</includeScope>
+              <excludeGroupIds>org.exoplatform,com.exoplatform</excludeGroupIds>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

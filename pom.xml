@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2013 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>maven-parent-pom</artifactId>
+    <groupId>org.exoplatform</groupId>
+    <version>25-M01</version>
+    <relativePath />
+  </parent>
+  <groupId>org.exoplatform.platform.distributions</groupId>
+  <artifactId>platform-community-distributions</artifactId>
+  <version>6.4.x-devx-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>eXo PLF:: Platform Community Distributions</name>
+  <modules>
+    <module>platform-community-edition-service</module>
+    <module>platform-community-root-webapp</module>
+    <module>platform-community-tomcat-standalone</module>
+  </modules>
+  <scm>
+    <connection>scm:git:git://github.com/exoplatform/exo-community.git</connection>
+    <developerConnection>scm:git:git@github.com:exoplatform/exo-community.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>http://fisheye.exoplatform.org/browse/projects/exo-community</url>
+  </scm>
+  <properties>
+    <!-- ************** -->
+    <!-- Dependencies   -->
+    <!-- ************** -->
+    <!-- Subscription agreement -->
+    <subscription-agreement.version>1.3.0</subscription-agreement.version>
+    <!-- ************** -->
+    <!-- Public distribution   -->
+    <!-- ************** -->
+    <io.meeds.distribution.version>1.4.x-devx-SNAPSHOT</io.meeds.distribution.version>
+    <!-- ************** -->
+    <!-- Add-ons for Entreprise packaging   -->
+    <!-- ************** -->
+    <addon.exo.jcr.id>exo-jcr</addon.exo.jcr.id>
+    <addon.exo.jcr.version>6.4.x-SNAPSHOT</addon.exo.jcr.version>
+    <addon.exo.ecms.id>exo-ecms</addon.exo.ecms.id>
+    <addon.exo.ecms.version>6.4.x-SNAPSHOT</addon.exo.ecms.version>
+    <addon.exo.tasks.id>exo-tasks</addon.exo.tasks.id>
+    <addon.exo.tasks.version>3.4.x-SNAPSHOT</addon.exo.tasks.version>
+    <addon.exo.web-conferencing.id>exo-web-conferencing</addon.exo.web-conferencing.id>
+    <addon.exo.web-conferencing.version>2.4.x-SNAPSHOT</addon.exo.web-conferencing.version>
+    <addon.exo.layout-management.id>exo-layout-management</addon.exo.layout-management.id>
+    <addon.exo.layout-management.version>1.4.x-SNAPSHOT</addon.exo.layout-management.version>
+    <addon.exo.jitsi.id>exo-jitsi</addon.exo.jitsi.id>
+    <addon.exo.jitsi.version>1.3.x-SNAPSHOT</addon.exo.jitsi.version>
+    <addon.exo.analytics.id>exo-analytics</addon.exo.analytics.id>
+    <addon.exo.analytics.version>1.3.x-SNAPSHOT</addon.exo.analytics.version>
+    <addon.exo.agenda.id>exo-agenda</addon.exo.agenda.id>
+    <addon.exo.agenda.version>1.3.x-SNAPSHOT</addon.exo.agenda.version>
+    <addon.exo.digital-workplace.id>exo-digital-workplace</addon.exo.digital-workplace.id>
+    <addon.exo.digital-workplace.version>1.4.x-SNAPSHOT</addon.exo.digital-workplace.version>
+    <addon.exo.data-upgrade.id>exo-data-upgrade</addon.exo.data-upgrade.id>
+    <addon.exo.data-upgrade.version>6.4.x-SNAPSHOT</addon.exo.data-upgrade.version>
+    <addon.exo.news.id>exo-news</addon.exo.news.id>
+    <addon.exo.news.version>2.4.x-SNAPSHOT</addon.exo.news.version>
+    <addon.exo.onlyoffice.id>exo-onlyoffice</addon.exo.onlyoffice.id>
+    <addon.exo.onlyoffice.version>2.4.x-SNAPSHOT</addon.exo.onlyoffice.version>
+    <addon.exo.chat.id>exo-chat</addon.exo.chat.id>
+    <addon.exo.chat.version>3.4.x-SNAPSHOT</addon.exo.chat.version>
+    <addon.exo.automatic-translation.id>exo-automatic-translation</addon.exo.automatic-translation.id>
+    <addon.exo.automatic-translation.version>1.1.x-SNAPSHOT</addon.exo.automatic-translation.version>
+    <addon.exo.documents.id>exo-documents</addon.exo.documents.id>
+    <addon.exo.documents.version>1.1.x-SNAPSHOT</addon.exo.documents.version>
+    <!-- Add-on manager extension to use (empty for Unix, .bat for Windows) -->
+    <addon.manager.extension />
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.meeds.distribution</groupId>
+        <artifactId>plf-community-tomcat-standalone</artifactId>
+        <version>${io.meeds.distribution.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+<!--      <dependency>
+        <groupId>com.exoplatform.legal</groupId>
+        <artifactId>subscription-agreement</artifactId>
+        <version>${subscription-agreement.version}</version>
+        <type>pdf</type>
+        <classifier>US</classifier>
+      </dependency>-->
+      <!-- Pre-bundled addons -->
+      <dependency>
+        <groupId>org.exoplatform.addons.digital-workplace</groupId>
+        <artifactId>digital-workplace-packaging</artifactId>
+        <version>${addon.exo.digital-workplace.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.layout-management</groupId>
+        <artifactId>layout-management-packaging</artifactId>
+        <version>${addon.exo.layout-management.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.jitsi</groupId>
+        <artifactId>web-conferencing-jitsi-packaging</artifactId>
+        <version>${addon.exo.jitsi.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.agenda</groupId>
+        <artifactId>agenda-packaging</artifactId>
+        <version>${addon.exo.agenda.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.web-conferencing</groupId>
+        <artifactId>web-conferencing-packaging</artifactId>
+        <version>${addon.exo.web-conferencing.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.jcr</groupId>
+        <artifactId>jcr-packaging</artifactId>
+        <version>${addon.exo.jcr.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.ecms</groupId>
+        <artifactId>ecms-packaging</artifactId>
+        <version>${addon.exo.ecms.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.upgrade</groupId>
+        <artifactId>data-upgrade-packaging</artifactId>
+        <version>${addon.exo.data-upgrade.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.news</groupId>
+        <artifactId>news-packaging</artifactId>
+        <version>${addon.exo.news.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.onlyoffice</groupId>
+        <artifactId>exo-onlyoffice-editor-packaging</artifactId>
+        <version>${addon.exo.onlyoffice.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.chat</groupId>
+        <artifactId>chat-embedded-packaging</artifactId>
+        <version>${addon.exo.chat.version}</version>
+        <type>zip</type>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.addons.automatic-translation</groupId>
+        <artifactId>automatic-translation-packaging</artifactId>
+        <version>${addon.exo.automatic-translation.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.documents</groupId>
+        <artifactId>documents-packaging</artifactId>
+        <version>${addon.exo.documents.version}</version>
+        <scope>provided</scope>
+        <type>zip</type>
+      </dependency>
+      <!-- Our modules -->
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>platform-community-edition-service</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>platform-community-tomcat-standalone</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>platform-community-tomcat-standalone</artifactId>
+        <version>${project.version}</version>
+        <type>zip</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Required to not break gmaven usage for -Pfix-headers by example-->
+        <plugin>
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>gmaven-plugin</artifactId>
+          <configuration>
+            <providerSelection>2.0</providerSelection>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+            <appendAssemblyId>false</appendAssemblyId>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

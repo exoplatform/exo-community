@@ -1,0 +1,238 @@
+========================================
+Release notes - eXo Platform 6.1.x
+========================================
+
+
+Date: DD/MM/YYYY
+Version: 6.1.x
+
+I.    MAIN CHANGES
+II.   STARTUP INSTRUCTIONS
+III.  UPGRADE NOTES
+IV.   KNOWN ISSUES
+
+= I. MAIN CHANGES =
+
+Main changes since Platform 6.0.0
+
+* Features 
+**
+
+* Improvements
+**
+
+* Noteable Changes
+**
+
+
+
+= II. STARTUP INSTRUCTIONS =
+
+The file README.txt contains information on how to start the product.
+
+= III. UPGRADE NOTES =
+
+The upgrade procedure is only guaranteed and tested to be transparent from the previous maintenance version (x.y.z from x.y.z-1). So, we recommend to apply upgrade procedures for all versions between your current and the target one.
+However, if you still insist on skipping versions, we strongly advise to read all upgrade notes of the versions you are skipping to see if your project is impacted by any previous upgrade procedure.
+
+== Upgrading from the previous Platform version (since Platform 6.0) ==
+
+Since Platform 5.1, the file upgrade.properties is not used anymore, the upgrade process has been simplified to:
+* Move data (files + database) to the new Platform installation
+* Start the server. You're ready.
+
+
+== Upgrading from the previous Platform version (since Platform 5.3) ==
+
+Since Platform 5.1, the file upgrade.properties is not used anymore, the upgrade process has been simplified to:
+* Move data (files + database) to the new Platform installation
+* Start the server. You're ready.
+
+== Upgrading from the previous Platform version (before Platform 5.1) ==
+
+* Prepare bundle:
+** If eXo Platform is connected to a populated organizational data source, Organization Integration Service must be activated so that the data are synchronized. Please refer to chapter 7 "LDAP Integration" in Administrator Guide for the detail.
+** Go to $PLATFORM-5.3.0-TOMCAT_HOME/gatein/conf/ folder (Tomcat bundle).
+** Rename upgradeâ€”sample.properties to upgrade.properties
+* Start server. The upgrade will be run automatically.
+* Stop server.
+* Remove/Rename the file upgrade.properties
+* Restart the server. You're ready.
+
+== Upgrading from Platform 5.1.0 to 5.3.0 ==
+
+=== Data migration ===
+
+The following data migration are performed on the first startup of PLF 5.3.0:
+* Login History data are moved from JCR to JPA
+* Product Information data are moved from JCR to JPA
+
+== Upgrading from Platform 5.0.0 to 5.1.0 ==
+
+=== Major Components Upgrades ===
+
+* JBoss EAP 7.1
+
+== Upgrading from Platform 4.4.4 to 5.0.0 ==
+
+=== Major Components Upgrades ===
+
+* Tomcat 8.5
+* JBoss EAP 7.0
+* Elasticsearch 5.6
+* Shindig 2.5
+* Infinispan 8.2
+* Upgrade to Groovy 2.4.12
+* Upgrade to JQuery 3.2.1
+* Upgrade to CKEditor to 4.7.2
+
+=== Description of the plugins used in this upgrade ===
+
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+#PLF-7186 Search Indexing Management page does not appear after PLF upgrade
+commons.upgrade.Upgrade-PortalData.enable=true
+
+# PLF-7253 Improve performances for the load space members.
+commons.upgrade.SpaceMemberAnyMembershipUpgradePlugin.enable=true
+
+#PLF-7169 : Upgrade from ISPN 5 to ISPN 8
+org.exoplatform.jcr.locks.force.remove=true
+
+=== Data migration ===
+
+The following data migration are performed on the first startup of PLF 5.3.0:
+* Settings and Notifications data are moved from JCR to JPA
+* Files are indexed in Elasticsearch instead of in the JCR
+* All space members are moved to JPA
+* Elasticsearch indexes are reindexed
+
+We recommend to check that your database's statistics are up to date before starting the migration:
+* MySQL: https://dev.mysql.com/doc/refman/5.7/en/analyze-table.html
+* PostgreSQL: https://www.postgresql.org/docs/9.6/static/sql-vacuum.html
+* Oracle: https://docs.oracle.com/database/121/SQLRF/statements_4005.htm#SQLRF01105
+* SQL Server: https://docs.microsoft.com/en-us/sql/relational-databases/statistics/update-statistics
+
+== Upgrading from Platform 4.4.3 to 4.4.4 ==
+=== Description of the plugins used in this upgrade ===
+
+No Upgrade plugin
+
+== Upgrading from Platform 4.4.2 to 4.4.3 ==
+=== Description of the plugins used in this upgrade ===
+
+# ECMS-7624 Can't download file with name that contains +
+commons.upgrade.NodeTypeTemplateUpgradePlugin=true
+
+=== Search ===
+
+*  JCR workspaces must be reindexed in order to apply the fix PLF-7276
+
+== Upgrading from Platform 4.4.1 to 4.4.2 ==
+=== Description of the plugins used in this upgrade ===
+
+# PLF-7088 Problem while naming contents using apostrophes
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+== Upgrading from Platform 4.4.0 to 4.4.1 ==
+
+=== Description of the plugins used in this upgrade ===
+
+# PLF-7186 Search Indexing Management page does not appear after PLF upgrade
+commons.upgrade.Upgrade-PortalData.enable=true
+
+# ECMS-7595: Cannot download a document : the Download button is not visible
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+=== Search ===
+
+* JCR data must be reindexed in order to apply the fix PLF-6326 for existing contents.
+* Elasticsearch spaces index must be recreated in order to apply SOC-5549
+
+=== Troubleshooting ===
+
+In a cluster environment, database locks issues can happen when starting the nodes the first time after the upgrade.
+The best solution to fix this is to start and stop completely one of the nodes to do the upgrade, then start the cluster.
+
+== Upgrading from Platform 4.3.1 to 5.3.0 ==
+
+=== Description of the plugins used in this upgrade ===
+
+#PLF-6737: No signature of method: static org.exoplatform.services.deployment.Utils.sanitize() when using the Announcement template
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+In addition, upgrade scripts are automatically run at startup in this version to migrate wiki and social data from JCR to JPA.
+Wiki data migration is done synchronously, meaning that the eXo Platform instance will be available only once the data migration is done.
+Social data migration is done asynchronously, meaning that the data migration will run after the eXo Platform start.
+
+=== Architecture changes ===
+
+Since the version 4.4.0, eXo Platform requires Elasticsearch.
+eXo Platform is shipped with an embedded version of Elasticsearch which automatically starts when eXo Platform starts.
+This embedded Elasticsearch instance is recommended for development and test but not for production.
+For production it is recommended to run a standalone Elasticsearch cluster (please refer to Elasticsearch official documentation for more details).
+In order to use a standalone Elasticsearch cluster, the following properties must be defined in exo.properties:
+* exo.es.embedded.enabled=false - Disable the default Embedded Elasticsearch
+* exo.es.index.server.url=<indexing_URL> - URL of the node used for indexing
+* exo.es.search.server.url=<searching_URL> - URL of the node used for searching
+
+For advanced configuration and more details please refer to the eXo Platform documentation.
+
+=== Unified search ===
+
+*  Data must be reindexed in order to apply the fix INTEG-458 for existing contents.
+
+== Upgrading from Platform 4.3.0 to 4.3.1 ==
+
+=== Description of the plugins used in this upgrade ===
+
+* The number in parentheses indicates the version for this upgrade.
+
+#ECMS-7412: Make preview limits configurable
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+== Upgrading from Platform 4.2.1 to 4.3.0 ==
+
+* Prepare bundle:
+** If eXo Platform is connected to a populated organizational data source, Organization Integration Service must be activated so that the data are synchronized. Please refer to chapter 7 "LDAP Integration" in Administrator Guide for the detail.
+** Go to $PLATFORM-5.3.0-TOMCAT_HOME/gatein/conf/ folder (Tomcat bundle) or $PLATFORM-5.3.0-JBOSS_HOME/standalone/configuration/gatein/ folder (Jboss bundle).
+** Rename upgrade-4.2.1-to-4.3.0â€”sample.properties to upgrade.properties
+* Start server. The upgrade will be run automatically.
+* Stop server.
+* Remove/Rename the file upgrade.properties
+* Restart the server. You're ready.
+
+=== Description of the plugins used in this upgrade ===
+
+* The number in parentheses indicates the version for this upgrade.
+
+#ECMS-6493: Share in Content Explorer
+commons.upgrade.UserViewUpgradePlugin.enable=true
+
+#ECMS-6971: Link Path in browser is incorrect and title of files in result is encoded
+commons.upgrade.WCMTemplateUpgradePlugin.enable=true
+
+#PLF-6478: Preview image on activity stream not fully responsive
+commons.upgrade.NodeTypeTemplateUpgradePlugin.enable=true
+
+#SOC-4109 Disable User(4.3-RC1)
+commons.upgrade.ModelOverriderUpdaterPlugin.enable=true
+
+#PLF-6263: Handle single quote in gadget's labels
+commons.upgrade.Upgrade-Gadgets.enable=true
+
+#FORUM-791 | Disable Users (4.3-RC1)
+commons.upgrade.ForumServiceUpdaterPlugin.enable=true
+
+#EXOGTN-2137 PLF migration plugin for Disabled User feature in GateIn 3.7
+commons.upgrade.DisableUserUpgradePlugin.enable=true
+commons.upgrade.DisableUserUpgradePlugin.numberOfThreads=20
+commons.upgrade.DisableUserUpgradePlugin.batchSize=100
+
+== IV. KNOWN ISSUES ==
+
+
+
+
+
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>platform-community-distributions</artifactId>
+    <groupId>org.exoplatform.platform.distributions</groupId>
+    <version>6.4.x-devx-SNAPSHOT</version>
+  </parent>
+  <artifactId>platform-community-edition-service</artifactId>
+  <packaging>jar</packaging>
+  <name>eXo PLF:: Platform - Enterprise Edition Information</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.container</artifactId>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>javax.servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-component-product</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-services</artifactId>
+      <version>${addon.exo.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.ecms</groupId>
+      <artifactId>ecms-core-publication</artifactId>
+      <version>${addon.exo.ecms.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.meeds.distribution</groupId>
+      <artifactId>plf-configuration</artifactId>
+      <version>${io.meeds.distribution.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <resources>
+      <!-- Filtered resources -->
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.properties</include>
+        </includes>
+        <excludes>
+          <exclude>**/enterprise-configuration.properties</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <!-- Not filtered resources -->
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>**/*.properties</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <configuration>
+          <!-- We want to use only the syntax @*@ to not be in conflict with the ${*} syntax used in kernel config file -->
+          <useDefaultDelimiters>false</useDefaultDelimiters>
+          <delimiters>
+            <delimiter>@</delimiter>
+          </delimiters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>io.meeds.distribution</groupId>
+                  <artifactId>plf-configuration</artifactId>
+                  <type>jar</type>
+                  <outputDirectory>${project.build.directory}/alternateDestination</outputDirectory>
+                  <excludes>META-INF/</excludes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>concat-files</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <concat destfile="${project.build.directory}/classes/conf/platform/configuration.properties">
+                  <fileset file="${project.build.directory}/alternateDestination/conf/platform/configuration.properties" />
+                  <fileset file="${project.basedir}/src/main/resources/community-configuration.properties" />
+                </concat>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>copy-resources</id>
+            <phase>prepare-package</phase>
+            <configuration>
+              <target>
+                <copy todir="${project.build.directory}/classes/">
+                  <fileset dir="${project.build.directory}/alternateDestination/">
+                    <exclude name="${project.build.directory}/alternateDestination/conf/platform/configuration.properties"/>
+                  </fileset>
+                </copy>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

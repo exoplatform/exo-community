@@ -1,0 +1,89 @@
+=========================
+Changelog Platform 6.1.x
+=========================
+
+
+Changelogs of previous releases are available at https://community.exoplatform.com/portal/intranet/wiki/group/spaces/platform_4/Release_Notes.
+
+
+eXo ECMS 6.1.x
+*************************
+** Bug
+
+** Improvemnts
+
+        
+eXo Forum 6.1.x
+*************************
+** Bug
+
+** Improvemnts
+
+eXo Social 6.1.x
+*************************
+** Bug
+
+** Improvemnts
+
+
+eXo Platform 6.1.x
+*************************
+
+** Bug
+
+** Improvemnts
+
+eXo Chat 3.1.x
+**************
+** Bug
+
+** Improvemnts
+    
+eXo News 2.1.x
+**************
+
+** Bug
+
+** Improvemnts
+    
+eXo GateIn 6.1.x
+*************************
+
+eXo Calendar 6.1.x
+*************************
+** Bug
+
+** Improvemnts
+    
+eXo JCR 6.1.x
+*************************    
+
+eXo Kernel 6.1.x
+*************************
+
+eXo Commons 6.1.x
+*************************
+
+eXo Wiki 6.1.x
+*************************
+** Bug
+
+** Improvemnts
+
+
+eXo Kudos 2.1.x
+**************
+
+eXo Task 3.1.x
+************** 
+
+** Bug
+
+** Improvemnts
+    
+    
+eXo Wallet 2.1.x
+******************
+
+eXo Gamification 2.1.x
+**************

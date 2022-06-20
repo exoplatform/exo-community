@@ -1,0 +1,83 @@
+<!--
+
+    Copyright (C) 2003-2013 eXo Platform SAS.
+
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 3 of
+    the License, or (at your option) any later version.
+
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+  <id>platform-community-tomcat-zip</id>
+  <formats>
+    <format>dir</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <baseDirectory>${project.build.finalName}</baseDirectory>
+  <fileSets>
+    <fileSet>
+      <outputDirectory>/</outputDirectory>
+      <directory>${project.basedir}/src/main/resources/</directory>
+      <filtered>false</filtered>
+      <lineEnding>keep</lineEnding>
+      <excludes>
+        <exclude>**/am.properties</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet>
+      <outputDirectory>/</outputDirectory>
+      <directory>${project.basedir}/src/main/resources/</directory>
+      <filtered>true</filtered>
+      <lineEnding>unix</lineEnding>
+      <includes>
+        <include>**/am.properties</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <!-- Enterprise Edition jar -->
+    <dependencySet>
+      <outputDirectory>/lib</outputDirectory>
+      <includes>
+        <include>${project.groupId}:platform-community-edition-service:jar</include>
+        <include>io.jsonwebtoken:jjwt-api:jar</include>
+        <include>io.jsonwebtoken:jjwt-impl:jar</include>
+        <include>io.jsonwebtoken:jjwt-jackson:jar</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>${artifact.artifactId}.jar</outputFileNameMapping>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>
+    <dependencySet>
+      <outputDirectory>/webapps</outputDirectory>
+      <includes>
+        <include>${project.groupId}:platform-community-root-webapp:war</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>${artifact.build.finalName}.war</outputFileNameMapping>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>
+    <!-- Platform Subscription agreement -->
+   <!-- <dependencySet>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>com.exoplatform.legal:subscription-agreement:pdf</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>eXo_Subscription_Agreement_${artifact.classifier}.pdf</outputFileNameMapping>
+      <useProjectArtifact>false</useProjectArtifact>
+    </dependencySet>-->
+  </dependencySets>
+</assembly>
