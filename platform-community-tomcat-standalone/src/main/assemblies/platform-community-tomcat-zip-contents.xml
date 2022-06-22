@@ -69,15 +69,5 @@
       <outputFileNameMapping>${artifact.build.finalName}.war</outputFileNameMapping>
       <useProjectArtifact>false</useProjectArtifact>
     </dependencySet>
-    <!-- Platform Subscription agreement -->
-   <!-- <dependencySet>
-      <outputDirectory>/</outputDirectory>
-      <includes>
-        <include>com.exoplatform.legal:subscription-agreement:pdf</include>
-      </includes>
-      <scope>provided</scope>
-      <outputFileNameMapping>eXo_Subscription_Agreement_${artifact.classifier}.pdf</outputFileNameMapping>
-      <useProjectArtifact>false</useProjectArtifact>
-    </dependencySet>-->
   </dependencySets>
 </assembly>
