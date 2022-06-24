@@ -36,9 +36,4 @@
     </init-params>
   </component>
 
-  <component>
-    <key>org.exoplatform.welcomescreens.service.TermsAndConditionsService</key>
-    <type>org.exoplatform.welcomescreens.service.impl.TermsAndConditionsServiceImpl</type>
-  </component>
-
 </configuration>

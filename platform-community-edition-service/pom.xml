@@ -115,7 +115,7 @@
               <target>
                 <concat destfile="${project.build.directory}/classes/conf/platform/configuration.properties">
                   <fileset file="${project.build.directory}/alternateDestination/conf/platform/configuration.properties" />
-                  <fileset file="${project.basedir}/src/main/resources/community-configuration.properties" />
+                  <fileset file="${project.basedir}/src/main/resources/platform-community-configuration.properties" />
                 </concat>
               </target>
             </configuration>

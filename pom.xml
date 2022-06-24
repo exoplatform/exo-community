@@ -59,7 +59,7 @@
     <addon.exo.jcr.id>exo-jcr</addon.exo.jcr.id>
     <addon.exo.jcr.version>6.4.x-SNAPSHOT</addon.exo.jcr.version>
     <addon.exo.ecms.id>exo-ecms</addon.exo.ecms.id>
-    <addon.exo.ecms.version>6.4.x-SNAPSHOT</addon.exo.ecms.version>
+    <addon.exo.ecms.version>6.4.x-devx-SNAPSHOT</addon.exo.ecms.version>
     <addon.exo.tasks.id>exo-tasks</addon.exo.tasks.id>
     <addon.exo.tasks.version>3.4.x-SNAPSHOT</addon.exo.tasks.version>
     <addon.exo.web-conferencing.id>exo-web-conferencing</addon.exo.web-conferencing.id>

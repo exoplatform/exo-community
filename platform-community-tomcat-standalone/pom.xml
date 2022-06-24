@@ -44,14 +44,6 @@
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
-    <!-- Subscription agreement -->
-<!--    <dependency>-->
-<!--      <groupId>com.exoplatform.legal</groupId>-->
-<!--      <artifactId>subscription-agreement</artifactId>-->
-<!--      <type>pdf</type>-->
-<!--      <classifier>US</classifier>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
     <!-- Platform - community distrib -->
     <dependency>
       <groupId>io.meeds.distribution</groupId>
@@ -335,10 +327,6 @@
                 </exec>
                 <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
                   <arg line="install ${addon.exo.documents.id}:${addon.exo.documents.version} --catalog=file://${project.build.directory}/local-catalog/exo-distrib-catalog.json" />
-                </exec>
-                <!-- Uninstall Some pre-bundled Meeds Package addons -->
-                <exec dir="${project.basedir}" executable="${project.build.directory}/${project.build.finalName}/${project.build.finalName}/addon${addon.manager.extension}" failonerror="true">
-                  <arg line="uninstall meeds-gamification-github" />
                 </exec>
               </target>
             </configuration>
