@@ -1,0 +1,36 @@
+========================================
+Release notes - eXo Platform 6.4.x
+========================================
+
+
+Date: DD/MM/YYYY
+Version: 6.4.x
+
+I.    MAIN CHANGES
+II.   STARTUP INSTRUCTIONS
+III.  UPGRADE NOTES
+IV.   KNOWN ISSUES
+
+= I. MAIN CHANGES =
+
+Main changes since Platform 6.3.0
+
+* Features 
+**
+
+* Improvements
+**
+
+* Noteable Changes
+**
+
+
+
+= II. STARTUP INSTRUCTIONS =
+
+The file README.txt contains information on how to start the product.
+
+= III. UPGRADE NOTES =
+
+The upgrade procedure is only guaranteed and tested to be transparent from the previous maintenance version (x.y.z from x.y.z-1). So, we recommend to apply upgrade procedures for all versions between your current and the target one.
+However, if you still insist on skipping versions, we strongly advise to read all upgrade notes of the versions you are skipping to see if your project is impacted by any previous upgrade procedure.
