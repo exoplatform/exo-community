@@ -14,7 +14,7 @@ To keep an eye on what's in the works and what's coming soon, keep an eye on our
 
 ## Quick install
 
-To get a glimpse at how eXo Platform works, the easiest for now is to run our [Docker image](https://hub.docker.com/r/exoplatform/exo) with ```docker run exoplatform/exo``` and head to the [Administrator's Guide](https://docs.exoplatform.org/en/latest/Installation.html) to familiarize yourself with basic operations.
+To get a glimpse at how eXo Platform works, you can run a local eXo platform server with all needed components by followinhg the [Getting Started Guide](https://docs.exoplatform.org/en/latest/GettingStartedeXoCommunity.html) to familiarize yourself with basic operations.
 
 ## Reporting issues
 
