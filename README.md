@@ -6,7 +6,7 @@ Community Edition.
 ## Documentation
 
 We are centralizing and maintaining our technical documentation
-here : [technical documentation](https://exoplatform.github.io/guide/getting-started).
+here : [technical documentation](https://exoplatform.github.io/guide/getting-started/Introduction.html).
 
 You will find information as to how to run eXo locally with docker-compose, how to configure a developer environment, eXo REST
 APIs and more
