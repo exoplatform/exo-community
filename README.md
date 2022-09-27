@@ -1,29 +1,25 @@
 # Welcome to eXo community
 
-This repository is designed to be the ofirst stop for centralizing all information, ressources and discussions about the eXo Platform  open source community.
+This repository is designed to be the first stop for centralizing information, ressources and discussions about the eXo Platform
+Community Edition.
 
-## Discussion forums
+## Documentation
 
- Watch the [Announcements](https://github.com/exoplatform/exo-community/discussions/categories/announcements) for news and updates about eXo Platform.
- 
- It's also a good place to [ask questions](https://github.com/exoplatform/exo-community/discussions/categories/general) and post [feature requests](https://github.com/exoplatform/exo-community/discussions/categories/ideas).
+We are centralizing and maintaining our technical documentation
+here : [technical documentation](https://exoplatform.github.io/guide/getting-started).
 
-## Roadmap
-
-To keep an eye on what's in the works and what's coming soon, keep an eye on our [public roadmap](https://github.com/orgs/exoplatform/projects/2)
+You will find information as to how to run eXo locally with docker-compose, how to configure a developer environment, eXo REST
+APIs and more
 
 ## Quick install
 
-To get a glimpse at how eXo Platform works, you can run a local eXo platform server with all needed components by followinhg the [Getting Started Guide](https://docs.exoplatform.org/en/latest/GettingStartedeXoCommunity.html) to familiarize yourself with basic operations.
+In particular, to install eXo Platform CE on your machine, start
+here : [install with eXo community](https://exoplatform.github.io/guide/getting-started/start-community.html)
 
-## Reporting issues
+## Discussion forums
 
-You can report bugs as [issues](https://github.com/exoplatform/exo-community/issues) in this repository
+Should you have questions or experience difficulties, start a discussion
+here : [eXo discussion forum](https://github.com/exoplatform/exo-community/discussions/categories/q-a).
 
-## Developers
-
-If you're willing to build yourself from source, start by setting up your development environment then learn about extending and developing with eXo Platform in the [Developer's Guide](https://docs.exoplatform.org/en/latest/GetStarted.html)
-
-## Documentation 
-
-The latest documentation is published at [docs.exoplatform.org](https://docs.exoplatform.org/en/latest/) and welcomes contributions too!
+We may post announcements regarding the community edition in the
+category [Announcements](https://github.com/exoplatform/exo-community/discussions/categories/announcements) of the same forum.
